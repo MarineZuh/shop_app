@@ -1,7 +1,6 @@
 
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:shop_app/models/product.dart';
 import 'package:shop_app/widgets/product_item.dart';
 import '../providers/products_provider.dart';
 
@@ -23,7 +22,7 @@ class ProductsGridView extends StatelessWidget {
         crossAxisSpacing: 10,
         mainAxisSpacing: 10,
       ),
-      itemBuilder: (context, index) => ProductItem(products[index]),
+      itemBuilder: (context, index) => ChangeNotifierProvider( child: ProductItem(), builder: (ctx) => products[index], ) ,
     );
   }
 }
